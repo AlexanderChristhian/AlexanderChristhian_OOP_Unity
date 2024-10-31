@@ -198,7 +198,7 @@ Animator:
   m_GameObject: {fileID: 602482562}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: -6092546340074112845, guid: da202e51ddae1db42bc09e8602598d0b, type: 3}
+  m_Controller: {fileID: 9100000, guid: 487005f413b8b3c4d8f5bad1ede76a76, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 1546096654}
   - component: {fileID: 1546096653}
   m_Layer: 0
-  m_Name: Player
+  m_Name: AlexanderChristhian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -461,11 +461,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546096649}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b76cbf25abc3a346b24d46963453bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: {x: 70, y: 50}
+  timeToFullSpeed: {x: 1, y: 1}
+  timeToStop: {x: 0.5, y: 0.5}
+  stopClamp: {x: 2.5, y: 2.5}
 --- !u!114 &1546096654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +477,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546096649}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95d3a6e0f6bb9964182ca51b3a66e820, type: 3}
   m_Name: 

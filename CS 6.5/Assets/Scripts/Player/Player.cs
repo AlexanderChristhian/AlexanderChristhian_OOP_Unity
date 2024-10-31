@@ -4,26 +4,36 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Awake()
+    public static Player Instance;
+    private PlayerMovement playerMovement;
+    private Animator animator;
+
+    private void Awake()
     {
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
         
+        else 
+        { 
+            Instance = this; 
+        } 
     }
 
-    // Update is called once per frame
-    void Start()
+    private void Start()
     {
-        
+        playerMovement = GetComponent<PlayerMovement>();
+        animator = GameObject.Find("EngineEffect").GetComponent<Animator>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-
+        playerMovement.Move();
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
-        
+        animator.SetBool("IsMoving", playerMovement.isMoving());
     }
-
 }

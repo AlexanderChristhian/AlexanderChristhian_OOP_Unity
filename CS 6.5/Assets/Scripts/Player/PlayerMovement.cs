@@ -3,16 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
-{
-    // Start is called before the first frame update
+{ 
+    [SerializeField] Vector2 maxSpeed;
+    [SerializeField] Vector2 timeToFullSpeed;
+    [SerializeField] Vector2 timeToStop;
+    [SerializeField] Vector2 stopClamp;
+    Vector2 moveDirection;
+    Vector2 moveVelocity;
+    Vector2 moveFriction;
+    Vector2 stopFriction;
+    Rigidbody2D rb;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        moveVelocity = 2 * maxSpeed/timeToFullSpeed;
+        moveFriction = (-2) * maxSpeed/(timeToFullSpeed * timeToFullSpeed);
+        stopFriction = (-2) * maxSpeed/(timeToStop* timeToStop);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Move()
     {
-        
+        float inputX = Input.GetAxis("Horizontal");
+        float inputY = Input.GetAxis("Vertical");
+
+        moveDirection = new Vector2(inputX, inputY);
+
+        moveVelocity.x *= moveDirection.x;
+        moveVelocity.y *= moveDirection.y;
+
+        Vector2 friction = GetFriction();
+        rb.velocity = new Vector2(
+            moveVelocity.x * Time.fixedDeltaTime + friction.x * (-moveDirection.x) * Time.fixedDeltaTime,
+            moveVelocity.y * Time.fixedDeltaTime + friction.y * (-moveDirection.y) * Time.fixedDeltaTime
+        );
+    }
+    public Vector2 GetFriction()
+    {
+        if (moveVelocity.magnitude > stopClamp.magnitude)
+        {
+            return stopFriction;
+        }
+        else
+        {
+            return moveFriction;
+        }
+    }
+
+    public void MoveBound()
+    {
+
+    }
+
+    public bool isMoving()
+    {
+        return rb.velocity != Vector2.zero;
     }
 }
