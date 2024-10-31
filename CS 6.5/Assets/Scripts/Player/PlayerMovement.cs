@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         moveVelocity = 2 * maxSpeed/timeToFullSpeed;
         moveFriction = (-2) * maxSpeed/(timeToFullSpeed * timeToFullSpeed);
-        stopFriction = (-2) * maxSpeed/(timeToStop* timeToStop);
+        stopFriction = (-2) * maxSpeed/(timeToStop * timeToStop);
     }
 
     public void Move()
@@ -29,18 +29,15 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = new Vector2(inputX, inputY);
 
-        moveVelocity.x *= moveDirection.x;
-        moveVelocity.y *= moveDirection.y;
-
         Vector2 friction = GetFriction();
         rb.velocity = new Vector2(
-            moveVelocity.x * Time.fixedDeltaTime + friction.x * (-moveDirection.x) * Time.fixedDeltaTime,
-            moveVelocity.y * Time.fixedDeltaTime + friction.y * (-moveDirection.y) * Time.fixedDeltaTime
+            moveVelocity.x * moveDirection.x + friction.x * moveDirection.x,
+            moveVelocity.y * moveDirection.y + friction.y * moveDirection.y
         );
     }
     public Vector2 GetFriction()
     {
-        if (moveVelocity.magnitude > stopClamp.magnitude)
+        if (moveDirection == Vector2.zero)
         {
             return stopFriction;
         }
