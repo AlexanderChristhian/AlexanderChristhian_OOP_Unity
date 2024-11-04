@@ -47,11 +47,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void MoveBound()
-    {
-
-    }
-
     public bool isMoving()
     {
         return rb.velocity != Vector2.zero;
