@@ -36,4 +36,6 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("IsMoving", playerMovement.isMoving());
     }
+
+    public Weapon Weapon { get; set; }
 }
