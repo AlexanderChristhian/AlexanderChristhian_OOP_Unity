@@ -17,18 +17,16 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator LoadSceneAsync(string sceneName)
     {
-        // Trigger the animation
-        animator.SetTrigger("End");
 
-        // Wait for the animation to finish
+        animator.SetTrigger("Start");
+
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
 
-        // Load the new scene
         SceneManager.LoadSceneAsync(sceneName);
 
-        // Optionally, reset player position after the scene is loaded
         Player.Instance.transform.position = new Vector3(0, -4.5f, 0);
-        animator.SetTrigger("Start");
+
+        animator.SetTrigger("End");
     }
 
     public void LoadScene(string sceneName)

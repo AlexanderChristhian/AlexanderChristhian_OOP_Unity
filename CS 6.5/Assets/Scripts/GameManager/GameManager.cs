@@ -24,18 +24,5 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(GameObject.Find("Main Camera"));
         DontDestroyOnLoad(GameObject.Find("Player"));
 
-        //DestroyAllExceptCameraAndPlayer();
-    }
-
-    private void DestroyAllExceptCameraAndPlayer()
-    {
-        GameObject[] allObjects = FindObjectsOfType<GameObject>();
-        foreach (GameObject obj in allObjects)
-        {
-            if (obj.name != "Main Camera" && obj.name != "Player" && obj != gameObject)
-            {
-                Destroy(obj);
-            }
-        }
     }
 }
