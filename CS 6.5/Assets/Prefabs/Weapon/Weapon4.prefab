@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8733997782776337983}
   - component: {fileID: 7736780920296361981}
   m_Layer: 0
-  m_Name: Weapon2
+  m_Name: Weapon4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd7a4b2d9667744c8a99f9c7b91c48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootIntervalInSeconds: 3
+  bullet: {fileID: -7529949968112922073, guid: ab719d06fda4bfd438588c4a1274d517, type: 3}
+  bulletSpawnPoint: {fileID: 1486885874605777060, guid: 27b6c5a9092cb304796d074469de5510, type: 3}
   parentTransform: {fileID: 0}
 --- !u!95 &8733997782776337983
 Animator:
@@ -57,7 +60,7 @@ Animator:
   m_GameObject: {fileID: 6112753986652956504}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: -1569867477556518978, guid: d58819ae51a945845b749cc34bd2c3ea, type: 3}
+  m_Controller: {fileID: -8641626481317772311, guid: 8d85a7ed2d1a8f24aac5e5a7a841589c, type: 3}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -109,7 +112,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6264491258527031638, guid: d58819ae51a945845b749cc34bd2c3ea, type: 3}
+  m_Sprite: {fileID: 7561473548264254487, guid: 8d85a7ed2d1a8f24aac5e5a7a841589c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

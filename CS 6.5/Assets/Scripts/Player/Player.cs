@@ -38,4 +38,6 @@ public class Player : MonoBehaviour
     }
 
     public Weapon Weapon { get; set; }
+
+    public Bullet Bullet { get; set; }
 }
