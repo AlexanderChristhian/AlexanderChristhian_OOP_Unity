@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -5034831469328792397}
   - component: {fileID: 7421582441544086350}
   - component: {fileID: -3652188722795463563}
+  - component: {fileID: 5965605582671935320}
   m_Layer: 0
   m_Name: Enemy Boss
   m_TagString: Enemy
@@ -217,3 +218,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 7421582441544086350}
+--- !u!114 &5965605582671935320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081567101196420639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84085f6d18aab248a2f52f7cea98f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkingCount: 3
+  blinkInterval: 0.1
+  blinkMaterial: {fileID: 2100000, guid: 69ac6e37f1d4330409986ccd67dc8151, type: 2}
+  isInvincible: 0

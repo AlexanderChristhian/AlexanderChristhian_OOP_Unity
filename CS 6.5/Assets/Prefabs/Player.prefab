@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: -3852468929984209180}
   - component: {fileID: 6062822977266076133}
   - component: {fileID: -7060694848539371969}
+  - component: {fileID: 2401842476417375472}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -488,6 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  health: 0
 --- !u!114 &-7060694848539371969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,3 +503,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 6062822977266076133}
+--- !u!114 &2401842476417375472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8624407118323224452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84085f6d18aab248a2f52f7cea98f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkingCount: 7
+  blinkInterval: 0.1
+  blinkMaterial: {fileID: 2100000, guid: d75e8a526b698ce4dbb874b4fbebe676, type: 2}
+  isInvincible: 0

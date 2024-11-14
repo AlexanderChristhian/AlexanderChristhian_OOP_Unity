@@ -9,11 +9,19 @@ public class HitboxComponent : MonoBehaviour
 
     public void Damage(int damage)
     {
-        health.Subtract(damage);
+        var invincibilityComponent = GetComponent<InvincibilityComponent>();
+        if (invincibilityComponent == null || !invincibilityComponent.isInvincible)
+        {
+            health.Subtract(damage);
+        }
     }
 
     public void Damage(Bullet bullet)
     {
-        health.Subtract(bullet.damage);
+        var invincibilityComponent = GetComponent<InvincibilityComponent>();
+        if (invincibilityComponent == null || !invincibilityComponent.isInvincible)
+        {
+            health.Subtract(bullet.damage);
+        }
     }
 }

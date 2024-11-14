@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -4336371410311063159}
   - component: {fileID: 6665046533832918047}
   - component: {fileID: 4357831583577677983}
+  - component: {fileID: 1492703031900699197}
   m_Layer: 0
   m_Name: Enemy Targeting
   m_TagString: Enemy
@@ -188,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 0}
-  damage: 2
+  damage: 10
 --- !u!114 &6665046533832918047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4cc20d2e8a04c8459fffd0957023d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   health: 0
 --- !u!114 &4357831583577677983
 MonoBehaviour:
@@ -216,3 +217,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 6665046533832918047}
+--- !u!114 &1492703031900699197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081567101196420639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c84085f6d18aab248a2f52f7cea98f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkingCount: 2
+  blinkInterval: 0.1
+  blinkMaterial: {fileID: 2100000, guid: 69ac6e37f1d4330409986ccd67dc8151, type: 2}
+  isInvincible: 0

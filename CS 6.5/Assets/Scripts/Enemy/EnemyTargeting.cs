@@ -41,7 +41,7 @@ public class EnemyTargeting : Enemy
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Respawn();
+            Destroy(gameObject);
         }
     }
 
@@ -51,21 +51,5 @@ public class EnemyTargeting : Enemy
         {
             StopCoroutine(followCoroutine);
         }
-    }
-
-    protected override void Respawn()
-    {
-        float spawnX;
-        if (Random.Range(0, 2) == 0)
-        {
-            spawnX = -screenBounds.x - spriteHalfWidth;
-        }
-        else
-        {
-            spawnX = screenBounds.x + spriteHalfWidth;
-        }
-        float spawnY = Random.Range(-screenBounds.y + spriteHalfHeight, screenBounds.y - spriteHalfHeight);
-        transform.position = new Vector2(spawnX, spawnY);
-        gameObject.SetActive(true);
     }
 }
