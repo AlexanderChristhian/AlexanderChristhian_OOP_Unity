@@ -27,7 +27,17 @@ public class WeaponPickup : MonoBehaviour
             Player player = other.GetComponent<Player>();
             if (player != null)
             {
-                if(player.Weapon != null)
+                // Deactivate all other weapons except the player's weapon
+                Weapon[] allWeapons = FindObjectsOfType<Weapon>();
+                foreach (Weapon w in allWeapons)
+                {
+                    if (w != weapon && w.transform.parent != player.transform)
+                    {
+                        w.gameObject.SetActive(false);
+                    }
+                }
+
+                if (player.Weapon != null)
                 {
                     player.Weapon.transform.SetParent(null);
                     player.Weapon.gameObject.SetActive(false);
@@ -36,7 +46,6 @@ public class WeaponPickup : MonoBehaviour
                 weapon.transform.SetParent(player.transform);
                 weapon.transform.localPosition = new Vector3(0, 0, 0);
                 weapon.gameObject.SetActive(true);
-                SpriteRenderer weaponSprite = weapon.GetComponent<SpriteRenderer>();
                 TurnVisual(true);
             }
         }

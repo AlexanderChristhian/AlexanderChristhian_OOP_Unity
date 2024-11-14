@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 public class Weapon : MonoBehaviour
 {
     [Header("Weapon Stats")]
-    [SerializeField] private float shootIntervalInSeconds = 3f;
+    [SerializeField] private float shootIntervalInSeconds;
     [Header("Bullets")]
     public Bullet bullet;
     [SerializeField] private Transform bulletSpawnPoint;
@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     private readonly int maxSize = 100;
     private float timer;
     public Transform parentTransform;
+    public Vector2 shootDirection = Vector2.up; // Default shooting direction is up
 
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class Weapon : MonoBehaviour
 
     Bullet CreateBullet()
     {
-        Bullet newBullet = Instantiate(bullet);
+        Bullet newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation, parentTransform);
         newBullet.objectPool = objectPool;
         return newBullet;
     }
@@ -47,7 +48,7 @@ public class Weapon : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetButton("Fire1") && Time.time > timer && objectPool != null)
+        if (Time.time > timer && objectPool != null && Player.Instance.Weapon != null)
         {
             Bullet bulletObject = objectPool.Get();
 
@@ -56,13 +57,13 @@ public class Weapon : MonoBehaviour
                 return;
             }
             
-            bullet.transform.SetPositionAndRotation(gameObject.transform.position, gameObject.transform.rotation);
+            bulletObject.transform.SetPositionAndRotation(bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 
-            bulletObject.GetComponent<Rigidbody2D>().AddForce(bulletSpawnPoint.up * bulletObject.bulletSpeed, ForceMode2D.Force);
+            bulletObject.GetComponent<Rigidbody2D>().velocity = shootDirection * bulletObject.bulletSpeed;
             
             bulletObject.Deactivate();  
 
-            timer = Time.time + shootIntervalInSeconds;
+            timer = Time.time + shootIntervalInSeconds; 
         }
     }
 }

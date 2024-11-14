@@ -12,13 +12,17 @@ public class Bullet : MonoBehaviour
 
     public IObjectPool<Bullet> objectPool;
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     IEnumerator DeactivateBullet(float delay)
     {
         yield return new WaitForSeconds(delay);
 
-        Rigidbody2D rBody = GetComponent<Rigidbody2D>();
-        rBody.velocity = new Vector3(0f, 0f, 0f);
-        rBody.angularVelocity = 0f;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = 0f;
         objectPool.Release(this);
     }
 
