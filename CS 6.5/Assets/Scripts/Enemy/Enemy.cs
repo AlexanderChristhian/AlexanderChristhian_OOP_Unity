@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] protected float speed;
+    [SerializeField] protected int level; 
     protected Vector2 screenBounds;
     protected Vector2 direction;
     protected float spriteHalfWidth;
@@ -36,5 +37,10 @@ public class Enemy : MonoBehaviour
     protected virtual void Respawn()
     {
         
+    }
+
+    public int Level
+    {
+        get { return level; }
     }
 }

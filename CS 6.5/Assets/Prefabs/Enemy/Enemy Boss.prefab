@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
+  level: 3
   weapon: {fileID: 7278590167171201063, guid: d4e02208998990a4891dd0977bf02283, type: 3}
 --- !u!114 &-5034831469328792397
 MonoBehaviour:
