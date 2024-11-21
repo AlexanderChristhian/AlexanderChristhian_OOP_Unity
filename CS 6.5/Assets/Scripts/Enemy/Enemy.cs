@@ -5,11 +5,15 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] protected float speed;
-    [SerializeField] protected int level; 
+    [SerializeField] public int level; 
     protected Vector2 screenBounds;
     protected Vector2 direction;
     protected float spriteHalfWidth;
     protected float spriteHalfHeight;
+
+    public CombatManager combatManager;
+
+    public EnemySpawner enemySpawner;
 
     protected virtual void Start()
     {
@@ -39,8 +43,15 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public int Level
+    protected virtual void OnDestroy()
     {
-        get { return level; }
+        if (enemySpawner != null)
+        {
+            enemySpawner.OnEnemyDeath();
+        }
+        if (combatManager != null)
+        {
+            combatManager.OnEnemyDeath();
+        }
     }
 }

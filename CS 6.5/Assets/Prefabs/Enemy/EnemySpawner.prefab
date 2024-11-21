@@ -44,3 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50330fda0c5c3af4094e86718d218d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnedEnemy: {fileID: 0}
+  minimumKillsToIncreaseSpawnCount: 3
+  totalKill: 0
+  spawnInterval: 3
+  spawnCount: 0
+  defaultSpawnCount: 1
+  spawnCountMultiplier: 1
+  multiplierIncreaseCount: 1
+  combatManager: {fileID: 8564656057651699955, guid: 586d865de8f8ad940b2d1ebacd9ef842, type: 3}
+  isSpawning: 0

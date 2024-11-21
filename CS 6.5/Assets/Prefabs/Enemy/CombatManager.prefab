@@ -69,6 +69,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyVerticalSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6753859036495801572, guid: edc40d5d312197b4f8c9da4dbbb27859, type: 3}
+      propertyPath: combatManager
+      value: 
+      objectReference: {fileID: 8564656057651699955}
+    - target: {fileID: 6753859036495801572, guid: edc40d5d312197b4f8c9da4dbbb27859, type: 3}
+      propertyPath: defaultSpawnCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753859036495801572, guid: edc40d5d312197b4f8c9da4dbbb27859, type: 3}
+      propertyPath: spawnCountMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6890334025956434246, guid: edc40d5d312197b4f8c9da4dbbb27859, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1576118
@@ -141,6 +153,14 @@ PrefabInstance:
     - target: {fileID: 4143110257329615628, guid: 5f92c9d2cc4e1ae41972222bf494253c, type: 3}
       propertyPath: m_Name
       value: EnemyHorizontalSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753859036495801572, guid: 5f92c9d2cc4e1ae41972222bf494253c, type: 3}
+      propertyPath: combatManager
+      value: 
+      objectReference: {fileID: 8564656057651699955}
+    - target: {fileID: 6753859036495801572, guid: 5f92c9d2cc4e1ae41972222bf494253c, type: 3}
+      propertyPath: defaultSpawnCount
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6890334025956434246, guid: 5f92c9d2cc4e1ae41972222bf494253c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -215,6 +235,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTargetingSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6753859036495801572, guid: 81ab18a69f3aec34aa2398148d69189b, type: 3}
+      propertyPath: combatManager
+      value: 
+      objectReference: {fileID: 8564656057651699955}
+    - target: {fileID: 6753859036495801572, guid: 81ab18a69f3aec34aa2398148d69189b, type: 3}
+      propertyPath: defaultSpawnCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6890334025956434246, guid: 81ab18a69f3aec34aa2398148d69189b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.1576118
@@ -287,6 +315,22 @@ PrefabInstance:
     - target: {fileID: 4143110257329615628, guid: cb440d2822e51b64bb08b00465e3142b, type: 3}
       propertyPath: m_Name
       value: EnemyBossSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753859036495801572, guid: cb440d2822e51b64bb08b00465e3142b, type: 3}
+      propertyPath: combatManager
+      value: 
+      objectReference: {fileID: 8564656057651699955}
+    - target: {fileID: 6753859036495801572, guid: cb440d2822e51b64bb08b00465e3142b, type: 3}
+      propertyPath: defaultSpawnCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753859036495801572, guid: cb440d2822e51b64bb08b00465e3142b, type: 3}
+      propertyPath: multiplierIncreaseCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753859036495801572, guid: cb440d2822e51b64bb08b00465e3142b, type: 3}
+      propertyPath: minimumKillsToIncreaseSpawnCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890334025956434246, guid: cb440d2822e51b64bb08b00465e3142b, type: 3}
       propertyPath: m_LocalPosition.x

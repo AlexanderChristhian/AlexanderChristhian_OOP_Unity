@@ -177,6 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   level: 1
+  combatManager: {fileID: 8564656057651699955, guid: 586d865de8f8ad940b2d1ebacd9ef842, type: 3}
+  enemySpawner: {fileID: 6753859036495801572, guid: 5f92c9d2cc4e1ae41972222bf494253c, type: 3}
 --- !u!114 &2110388746974011735
 MonoBehaviour:
   m_ObjectHideFlags: 0

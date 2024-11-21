@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Prefabs")]
-    public Enemy spawnedEnemy; // Single enemy prefab
+    public Enemy spawnedEnemy; 
 
     [SerializeField] private int minimumKillsToIncreaseSpawnCount = 3;
     public int totalKill = 0;
@@ -23,4 +23,52 @@ public class EnemySpawner : MonoBehaviour
 
     public bool isSpawning = false;
 
+    void Start()
+    {
+        spawnCount = defaultSpawnCount;
+    }
+
+    public void StartSpawning()
+    {
+        if (!isSpawning && spawnedEnemy.level <= combatManager.waveNumber)
+        {
+            isSpawning = true;
+            StartCoroutine(SpawnEnemy());
+        }
+    }
+
+    void StopSpawning()
+    {
+        isSpawning = false;
+        StopAllCoroutines();
+    }
+
+    IEnumerator SpawnEnemy()
+    {
+        for (int i = 0; i < spawnCount; i++)
+        {
+            if (spawnedEnemy != null)
+            {
+                Enemy enemy = Instantiate(spawnedEnemy);
+                enemy.GetComponent<Enemy>().combatManager = combatManager;
+                enemy.GetComponent<Enemy>().enemySpawner = this;
+                combatManager.totalEnemies++;
+                yield return new WaitForSeconds(spawnInterval);
+            }
+        }
+        StopSpawning();
+    }
+
+    public void OnEnemyDeath()
+    {
+        totalKill++;
+        totalKillWave++;
+
+        if (totalKillWave >= minimumKillsToIncreaseSpawnCount)
+        {
+            totalKillWave = 0;
+            spawnCount = defaultSpawnCount + (spawnCountMultiplier * multiplierIncreaseCount);
+            multiplierIncreaseCount++;
+        }
+    }
 }

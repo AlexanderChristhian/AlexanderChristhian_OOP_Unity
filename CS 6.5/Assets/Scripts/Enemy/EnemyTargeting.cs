@@ -45,11 +45,12 @@ public class EnemyTargeting : Enemy
         }
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
         if (followCoroutine != null)
         {
             StopCoroutine(followCoroutine);
         }
+        base.OnDestroy();
     }
 }
