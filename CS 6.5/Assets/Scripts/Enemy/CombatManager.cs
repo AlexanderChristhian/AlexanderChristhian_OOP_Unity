@@ -5,14 +5,22 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {    
     public EnemySpawner[] enemySpawners;
+    private MainUI mainUI;
     public float timer = 0;
     [SerializeField] private float waveInterval = 5f;
     public int waveNumber = 0;
     public int totalEnemies = 0;
+    public int points = 0;
 
     void Start()
     {
         waveNumber = 0; 
+        mainUI = FindObjectOfType<MainUI>();
+    }
+
+    public float GetWaveInterval()
+    {
+        return waveInterval;
     }
 
     void Update()
@@ -27,6 +35,7 @@ public class CombatManager : MonoBehaviour
                 StartWave();
             }
         }
+        mainUI.UpdateUI();
     }
 
     void StartWave()

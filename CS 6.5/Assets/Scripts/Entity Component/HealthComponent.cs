@@ -12,9 +12,9 @@ public class HealthComponent : MonoBehaviour
         health = maxHealth;
     }
 
-    public int Health
+    public int Health()
     {
-        get { return health; }
+        return health;
     }
 
     public void Subtract(int amount)
